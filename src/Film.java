@@ -1,9 +1,13 @@
 public class Film {
-    String nome;
-    int anoDeLancamento;
-    boolean incluidoNoPlano;
-    double avaliacao;
-    int totalDeAvaliacoes;
-    int duracaoEmMinutos;
-    
+    String name;
+    int releaseYear;
+    boolean incluedInPlan;
+    double review;
+    int totalReviews;
+    int durationInMinutes;
+
+    void showTechnicalSheet(){
+        System.out.println("Nome: " + name);
+        System.out.println("Ano de Lançamento: " + releaseYear);
+    }
 }
