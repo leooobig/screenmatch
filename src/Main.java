@@ -1,4 +1,5 @@
 import br.com.screenmatch.models.Film;
+import br.com.screenmatch.models.Serie;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,5 +14,12 @@ public class Main {
         myFilm.evaluate(8);
         System.out.println("Total de avaliações: " + myFilm.getTotalEvaluations());
         System.out.println(myFilm.getAvarage());
+
+        Serie serie = new Serie();
+        serie.setName("Vikings");
+        serie.setReleaseYear(2000);
+        serie.showTechnicalSheet();
+        serie.setSeasons(8);
+        serie.setEpisodesBySeason(12);
     }
 }
