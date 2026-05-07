@@ -7,6 +7,7 @@ public class Main {
         myFilm.setName("Top Gun");
         myFilm.setReleaseYear(2002);
         myFilm.setDurationInMinutes(185);
+        System.out.println("Duração do filme: " + myFilm.getDurationInMinutes());
 
         myFilm.showTechnicalSheet();
         myFilm.evaluate(10);
@@ -15,11 +16,13 @@ public class Main {
         System.out.println("Total de avaliações: " + myFilm.getTotalEvaluations());
         System.out.println(myFilm.getAvarage());
 
-        Serie serie = new Serie();
-        serie.setName("Vikings");
-        serie.setReleaseYear(2000);
-        serie.showTechnicalSheet();
-        serie.setSeasons(8);
-        serie.setEpisodesBySeason(12);
+        Serie mySerie = new Serie();
+        mySerie.setName("Vikings");
+        mySerie.setReleaseYear(2000);
+        mySerie.showTechnicalSheet();
+        mySerie.setSeasons(10);
+        mySerie.setEpisodesBySeason(10);
+        mySerie.setMinutesBySeason(50);
+        System.out.println("Duração da série: " + mySerie.getDurationInMinutes() + " minutos");
     }
 }
