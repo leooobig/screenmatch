@@ -1,3 +1,4 @@
+import br.com.screenmatch.calculations.TimeCalculator;
 import br.com.screenmatch.models.Film;
 import br.com.screenmatch.models.Serie;
 
@@ -16,6 +17,17 @@ public class Main {
         System.out.println("Total de avaliações: " + myFilm.getTotalEvaluations());
         System.out.println(myFilm.getAvarage());
 
+        TimeCalculator timeCalculator = new TimeCalculator();
+        timeCalculator.includ(myFilm);
+
+        Film myFilm2 = new Film();
+        myFilm2.setName("Avatar");
+        myFilm2.setReleaseYear(2000);
+        myFilm2.setDurationInMinutes(135);
+        System.out.println("Duração do filme: " + myFilm2.getDurationInMinutes());
+        timeCalculator.includ(myFilm2);
+
+
         Serie mySerie = new Serie();
         mySerie.setName("Vikings");
         mySerie.setReleaseYear(2000);
@@ -24,5 +36,9 @@ public class Main {
         mySerie.setEpisodesBySeason(10);
         mySerie.setMinutesBySeason(50);
         System.out.println("Duração da série: " + mySerie.getDurationInMinutes() + " minutos");
+        timeCalculator.includ(mySerie);
+
+        System.out.println("Duração da maratona dos Filmes/Séries: " + timeCalculator.getTotalTime());
+
     }
 }
