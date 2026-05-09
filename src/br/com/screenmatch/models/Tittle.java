@@ -1,6 +1,7 @@
 package br.com.screenmatch.models;
+import br.com.screenmatch.calculations.Classifiable;
 
-public class Tittle {
+public class Tittle implements Classifiable {
     private String name;
     private int releaseYear;
     private boolean incluedInPlan;
@@ -65,5 +66,10 @@ public class Tittle {
     public void evaluate(double note){
         sumEvaluations += note;
         totalEvaluations ++;
+    }
+
+    @Override
+    public int getClassification() {
+        return 0;
     }
 }
