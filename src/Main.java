@@ -1,4 +1,6 @@
+import br.com.screenmatch.calculations.RecommendationFilter;
 import br.com.screenmatch.calculations.TimeCalculator;
+import br.com.screenmatch.models.Episode;
 import br.com.screenmatch.models.Film;
 import br.com.screenmatch.models.Serie;
 
@@ -13,7 +15,7 @@ public class Main {
         myFilm.showTechnicalSheet();
         myFilm.evaluate(10);
         myFilm.evaluate(10);
-        myFilm.evaluate(8);
+        myFilm.evaluate(9);
         System.out.println("Total de avaliações: " + myFilm.getTotalEvaluations());
         System.out.println(myFilm.getAvarage());
 
@@ -40,5 +42,14 @@ public class Main {
 
         System.out.println("Duração da maratona dos Filmes/Séries: " + timeCalculator.getTotalTime());
 
+
+        RecommendationFilter recommendationFilter = new RecommendationFilter();
+        recommendationFilter.filter(myFilm);
+
+        Episode episode = new Episode();
+        episode.setNumber(1);
+        episode.setSerie(mySerie);
+        episode.setTotalPreview(50);
+        recommendationFilter.filter(episode);
     }
 }
