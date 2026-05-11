@@ -3,6 +3,7 @@ import br.com.screenmatch.calculations.TimeCalculator;
 import br.com.screenmatch.models.Episode;
 import br.com.screenmatch.models.Film;
 import br.com.screenmatch.models.Serie;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +13,6 @@ public class Main {
         myFilm.setDurationInMinutes(185);
         System.out.println("Duração do filme: " + myFilm.getDurationInMinutes());
 
-        myFilm.showTechnicalSheet();
         myFilm.evaluate(10);
         myFilm.evaluate(10);
         myFilm.evaluate(9);
@@ -42,7 +42,6 @@ public class Main {
 
         System.out.println("Duração da maratona dos Filmes/Séries: " + timeCalculator.getTotalTime());
 
-
         RecommendationFilter recommendationFilter = new RecommendationFilter();
         recommendationFilter.filter(myFilm);
 
@@ -51,5 +50,22 @@ public class Main {
         episode.setSerie(mySerie);
         episode.setTotalPreview(50);
         recommendationFilter.filter(episode);
+
+        Film myFilm3 = new Film();
+        myFilm3.setName("Dogville");
+        myFilm3.setDurationInMinutes(200);
+        myFilm3.setReleaseYear(2003);
+        myFilm3.evaluate(10);
+
+        ArrayList<Film> filmList = new ArrayList<>();
+        filmList.add(myFilm);
+        filmList.add(myFilm2);
+        filmList.add(myFilm3);
+        System.out.println("Tamanho da lista: " + filmList.size());
+        System.out.println("Primeiro filme: " + filmList.get(0).getName());
+
+        for (int i = 0; i < filmList.size(); i++) {
+            System.out.println((i+1) + " "+ filmList.get(i).getName());
+        }
     }
 }
