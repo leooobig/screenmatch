@@ -7,10 +7,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Film myFilm = new Film();
-        myFilm.setName("Top Gun");
-        myFilm.setReleaseYear(2002);
-        myFilm.setDurationInMinutes(185);
+        Film myFilm = new Film("Top Gun", 2002, 185);
         System.out.println("Duração do filme: " + myFilm.getDurationInMinutes());
 
         myFilm.evaluate(10);
@@ -22,10 +19,7 @@ public class Main {
         TimeCalculator timeCalculator = new TimeCalculator();
         timeCalculator.includ(myFilm);
 
-        Film myFilm2 = new Film();
-        myFilm2.setName("Avatar");
-        myFilm2.setReleaseYear(2000);
-        myFilm2.setDurationInMinutes(135);
+        Film myFilm2 = new Film("Avatar", 2000, 135);
         System.out.println("Duração do filme: " + myFilm2.getDurationInMinutes());
         timeCalculator.includ(myFilm2);
 
@@ -51,10 +45,7 @@ public class Main {
         episode.setTotalPreview(50);
         recommendationFilter.filter(episode);
 
-        Film myFilm3 = new Film();
-        myFilm3.setName("Dogville");
-        myFilm3.setDurationInMinutes(200);
-        myFilm3.setReleaseYear(2003);
+        Film myFilm3 = new Film("Dogville", 200, 2003);
         myFilm3.evaluate(10);
 
         ArrayList<Film> filmList = new ArrayList<>();
@@ -63,9 +54,10 @@ public class Main {
         filmList.add(myFilm3);
         System.out.println("Tamanho da lista: " + filmList.size());
         System.out.println("Primeiro filme: " + filmList.get(0).getName());
+        System.out.println(filmList);
 
         for (int i = 0; i < filmList.size(); i++) {
-            System.out.println((i+1) + " "+ filmList.get(i).getName());
+            System.out.println(filmList.get(i).toString());
         }
     }
 }
