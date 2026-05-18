@@ -1,3 +1,5 @@
+package br.com.screenmatch.principal;
+
 import br.com.screenmatch.calculations.RecommendationFilter;
 import br.com.screenmatch.calculations.TimeCalculator;
 import br.com.screenmatch.models.Episode;
@@ -7,7 +9,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Film myFilm = new Film("Top Gun", 2002, 185);
+        Film myFilm = new Film("Top Gun", 2002);
+        myFilm.setDurationInMinutes(180);
         System.out.println("Duração do filme: " + myFilm.getDurationInMinutes());
 
         myFilm.evaluate(10);
@@ -19,14 +22,13 @@ public class Main {
         TimeCalculator timeCalculator = new TimeCalculator();
         timeCalculator.includ(myFilm);
 
-        Film myFilm2 = new Film("Avatar", 2000, 135);
+        Film myFilm2 = new Film("Avatar", 2000);
+        myFilm2.setDurationInMinutes(135);
         System.out.println("Duração do filme: " + myFilm2.getDurationInMinutes());
         timeCalculator.includ(myFilm2);
 
 
-        Serie mySerie = new Serie();
-        mySerie.setName("Vikings");
-        mySerie.setReleaseYear(2000);
+        Serie mySerie = new Serie("Vikings",2000);
         mySerie.showTechnicalSheet();
         mySerie.setSeasons(10);
         mySerie.setEpisodesBySeason(10);
@@ -45,7 +47,8 @@ public class Main {
         episode.setTotalPreview(50);
         recommendationFilter.filter(episode);
 
-        Film myFilm3 = new Film("Dogville", 200, 2003);
+        Film myFilm3 = new Film("Dogville", 200);
+        myFilm3.setDurationInMinutes(200);
         myFilm3.evaluate(10);
 
         ArrayList<Film> filmList = new ArrayList<>();

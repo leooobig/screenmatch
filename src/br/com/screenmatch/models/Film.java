@@ -4,10 +4,8 @@ import br.com.screenmatch.calculations.Classifiable;
 public class Film extends Tittle implements Classifiable {
     private String director;
 
-    public Film(String name, int releaseYear, int minutes){
-        this.setName(name);
-        this.setReleaseYear(releaseYear);
-        this.setDurationInMinutes(minutes);
+    public Film(String name, int releaseYear) {
+        super(name, releaseYear);
     }
 
     public String getDirector() {

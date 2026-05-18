@@ -10,6 +10,11 @@ public class Tittle implements Classifiable {
     private int durationInMinutes;
     private String director;
 
+    public Tittle(String name, int releaseYear){
+        this.setName(name);
+        this.setReleaseYear(releaseYear);
+    }
+
     public void setDirector(String director) {
         this.director = director;
     }
