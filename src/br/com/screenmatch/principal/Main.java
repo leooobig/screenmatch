@@ -5,7 +5,12 @@ import br.com.screenmatch.calculations.TimeCalculator;
 import br.com.screenmatch.models.Episode;
 import br.com.screenmatch.models.Film;
 import br.com.screenmatch.models.Serie;
+import br.com.screenmatch.models.Tittle;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,13 +27,13 @@ public class Main {
         TimeCalculator timeCalculator = new TimeCalculator();
         timeCalculator.includ(myFilm);
 
-        Film myFilm2 = new Film("Avatar", 2000);
+        Film myFilm2 = new Film("Avatar", 1992);
         myFilm2.setDurationInMinutes(135);
         System.out.println("Duração do filme: " + myFilm2.getDurationInMinutes());
         timeCalculator.includ(myFilm2);
 
 
-        Serie mySerie = new Serie("Vikings",2000);
+        Serie mySerie = new Serie("Vikings",2006);
         mySerie.showTechnicalSheet();
         mySerie.setSeasons(10);
         mySerie.setEpisodesBySeason(10);
@@ -47,20 +52,27 @@ public class Main {
         episode.setTotalPreview(50);
         recommendationFilter.filter(episode);
 
-        Film myFilm3 = new Film("Dogville", 200);
+        Film myFilm3 = new Film("Dogville", 2003);
         myFilm3.setDurationInMinutes(200);
         myFilm3.evaluate(10);
 
-        ArrayList<Film> filmList = new ArrayList<>();
-        filmList.add(myFilm);
-        filmList.add(myFilm2);
-        filmList.add(myFilm3);
-        System.out.println("Tamanho da lista: " + filmList.size());
-        System.out.println("Primeiro filme: " + filmList.get(0).getName());
-        System.out.println(filmList);
-
-        for (int i = 0; i < filmList.size(); i++) {
-            System.out.println(filmList.get(i).toString());
+        List<Tittle> tittleList = new ArrayList<>();
+        tittleList.add(myFilm);
+        tittleList.add(myFilm2);
+        tittleList.add(myFilm3);
+        tittleList.add(mySerie);
+        System.out.println("Tamanho da lista: " + tittleList.size());
+        System.out.println("Primeiro filme: " + tittleList.get(0).getName());
+        for(Tittle tittle : tittleList){
+            System.out.println(tittle);
         }
+
+        //Ordenando lista pelo nome (metodo compareTo na class Tittle)
+        System.out.println("Comparando por nome:");
+        Collections.sort(tittleList);
+        System.out.println(tittleList);
+        System.out.println("Comparando por ano de lançamento:");
+        tittleList.sort(Comparator.comparing(Tittle::getReleaseYear));
+        System.out.println(tittleList);
     }
 }

@@ -1,7 +1,7 @@
 package br.com.screenmatch.models;
 import br.com.screenmatch.calculations.Classifiable;
 
-public class Tittle implements Classifiable {
+public class Tittle implements Classifiable, Comparable<Tittle>{
     private String name;
     private int releaseYear;
     private boolean incluedInPlan;
@@ -76,5 +76,10 @@ public class Tittle implements Classifiable {
     @Override
     public int getClassification() {
         return 0;
+    }
+
+    @Override
+    public int compareTo(Tittle otherTittle) {
+        return this.getName().compareTo(otherTittle.getName());
     }
 }
