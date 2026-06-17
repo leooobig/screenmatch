@@ -7,6 +7,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import br.com.screenmatch.models.OmdbTittle;
+import br.com.screenmatch.models.Tittle;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class MainSearch {
@@ -25,6 +30,12 @@ public class MainSearch {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url)).build();
         HttpResponse<String> reponse = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(reponse.body());
+
+        String json = reponse.body();
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+        OmdbTittle omdbTittle = gson.fromJson(json, OmdbTittle.class);
+        Tittle myTittle = new Tittle(omdbTittle);
+        System.out.println(myTittle);
+
     }
 }

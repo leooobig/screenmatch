@@ -15,6 +15,12 @@ public class Tittle implements Classifiable, Comparable<Tittle>{
         this.setReleaseYear(releaseYear);
     }
 
+    public Tittle(OmdbTittle omdbTittle){
+        this.name = omdbTittle.title();
+        this.releaseYear = Integer.valueOf(omdbTittle.year());
+        this.durationInMinutes = Integer.valueOf(omdbTittle.runtime().substring(0,2));
+    }
+
     public void setDirector(String director) {
         this.director = director;
     }
@@ -81,5 +87,12 @@ public class Tittle implements Classifiable, Comparable<Tittle>{
     @Override
     public int compareTo(Tittle otherTittle) {
         return this.getName().compareTo(otherTittle.getName());
+    }
+
+    @Override
+    public String toString() {
+        return  "name= '" + name + '\'' +
+                ", releaseYear= " + releaseYear + '\'' +
+                ", duration= " + durationInMinutes;
     }
 }
